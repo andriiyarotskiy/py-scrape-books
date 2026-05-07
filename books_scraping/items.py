@@ -7,6 +7,18 @@ import scrapy
 
 
 class BooksScrapingItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    title = scrapy.Field()
+    author = scrapy.Field()
+    price = scrapy.Field()
+    rating = scrapy.Field()
+    isbn = scrapy.Field()
+    availability = scrapy.Field()
+    description = scrapy.Field()
+
+    # Example how to use
+    # def parse(self, response):
+    #     for book in response.css('article.product_pod'):
+    #         item = BooksScrapingItem()
+    #         item['title'] = book.css('h3 a::attr(title)').get()
+    #         item['price'] = book.css('.price_color::text').get()
+    #         yield item

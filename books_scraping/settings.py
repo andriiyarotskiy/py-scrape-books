@@ -84,4 +84,5 @@ DOWNLOAD_DELAY = 1
 # HTTPCACHE_STORAGE = "scrapy.extensions.httpcache.FilesystemCacheStorage"
 
 # Set settings whose default value is deprecated to a future-proof value
+FEEDS = {"books.jl": {"format": "jl"}}
 FEED_EXPORT_ENCODING = "utf-8"

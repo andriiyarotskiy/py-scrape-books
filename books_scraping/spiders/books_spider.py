@@ -67,7 +67,10 @@ class BooksSpider(scrapy.Spider):
         price = response.meta["price"]
 
         # Scrape additional details from this page
-        description = response.css("#product_description + p::text").get()
+        description_parts = response.css(
+            "#product_description ~ p::text"
+        ).getall()
+        description = " ".join(part.strip() for part in description_parts)
         amount_in_stock = int(
             response.xpath(".//p[contains(@class, 'availability')]/text()").re(
                 r"(\d+)"
